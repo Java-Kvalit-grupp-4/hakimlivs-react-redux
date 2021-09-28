@@ -1,9 +1,10 @@
 import Product from "../../components/Product";
-import {FETCH_PRODUCTS} from "../actions/actionTypes";
+import {FETCH_PRODUCTS, PRODUCTS_TO_RENDER} from "../actions/actionTypes";
 
 const initState = {
     allProducts: [],
-    allCategories: []
+    allCategories: [],
+    productsToRender: [],
 }
 
 const productsReducer = (state = initState, action) => {
@@ -16,9 +17,14 @@ const productsReducer = (state = initState, action) => {
             const categories = [...new Set(tempList)]
             const p = action.payload.products.map(product => {return {...product, stock: 1}})
             state.allProducts = p
+            state.productsToRender = p
             state.allCategories = categories
             return {...state}
             //return {...state, allProducts: action.payload.products}
+
+        case PRODUCTS_TO_RENDER:
+            state.productsToRender = action.payload.products
+            return {...state}
         default:
             return  {...state}
     }

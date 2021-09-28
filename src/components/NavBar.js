@@ -12,6 +12,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {changeLoggedInStatus} from "../redux/actions/loggedInAction";
 import {logoutUser} from "../redux/actions/userAction";
 import {useHistory} from "react-router";
+import {loadProducts} from "../redux/actions/productAction";
 
 const NavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,11 +33,16 @@ const NavBar = () => {
         setIsOpen(false)
     }
 
+    const handleLogoClick = () => {
+        dispatch(loadProducts())
+        history.push('/')
+    }
+
     return (
         <StyledNavbar>
             <HiOutlineMenu id='menu' onClick={() => setIsOpen(!isOpen)}/>
             <LogoContainer>
-                <Link to='/'><img src={logo} alt='Hakim livs logo'/></Link>
+                <img src={logo} alt='Hakim livs logo' onClick={handleLogoClick}/>
             </LogoContainer>
             <LinkContainer>
                 {isOpen && (

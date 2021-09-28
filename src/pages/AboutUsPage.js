@@ -1,10 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import StoreInformation from "../components/StoreInformation";
 
 const AboutUsPage = () => {
+
+    useEffect(() => {
+        window.scroll(0,0)
+    }, [])
     return (
-        <div>
-            <h1>About us</h1>
-        </div>
+        <>
+            <StoreInformation/>
+        </>
     )
 }
 

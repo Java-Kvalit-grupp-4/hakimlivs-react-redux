@@ -1,12 +1,13 @@
 import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 
-import Homepage from "./pages/Homepage";
 import NavBar from "./components/NavBar";
+import Homepage from "./pages/Homepage";
 import CheckoutPage from "./pages/CheckoutPage";
 import MyAccountPage from "./pages/MyAccountPage";
 import SignInPage from "./pages/SignInPage";
 import AboutUsPage from "./pages/AboutUsPage";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path='/sign-in' component={SignInPage}/>
                 <Route path='/about-us' component={AboutUsPage}/>
             </Switch>
+            <Footer/>
         </BrowserRouter>
 );
 }

@@ -18,7 +18,7 @@ const userReducer = (state = initState, action) => {
             state.user = {}
             state.roles = []
             state.jwtToken = ''
-
+            return {...state}
         default:
             return  {...state}
     }
